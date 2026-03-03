@@ -30,7 +30,7 @@ export class RecipesService {
 
   public readonly recipeSelected = signal<Recipe | undefined>(undefined);
 
-  onSelectRecipe(recipe: Recipe) {
+  onSelectRecipe(recipe: Recipe): void {
     this.recipeSelected.set(recipe);
   }
 }

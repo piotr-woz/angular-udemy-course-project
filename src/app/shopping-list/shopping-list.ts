@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { ShoppingEdit } from './shopping-edit/shopping-edit';
-import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -10,12 +10,7 @@ import { Ingredient } from '../shared/ingredient.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShoppingList {
-  protected readonly ingredients = signal<Ingredient[]>([
-    { name: 'Apples', amount: 5 },
-    { name: 'Tomatoes', amount: 10 },
-  ]);
+  private readonly shoppingListService = inject(ShoppingListService);
 
-  protected onAddIngredient(ingredient: Ingredient): void {
-    this.ingredients.update((ingredients) => [...ingredients, ingredient]);
-  }
+  protected readonly ingredients = this.shoppingListService.ingredients;
 }

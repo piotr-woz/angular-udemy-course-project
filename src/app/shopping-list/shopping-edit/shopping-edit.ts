@@ -1,13 +1,6 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  signal,
-  output,
-  viewChild,
-  ElementRef,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, viewChild, ElementRef, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Ingredient } from '../../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -17,13 +10,13 @@ import { Ingredient } from '../../shared/ingredient.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShoppingEdit {
-  public readonly ingredientAdded = output<Ingredient>();
+  private readonly shoppingListService = inject(ShoppingListService);
 
   private readonly nameValueRef = viewChild<ElementRef<HTMLInputElement>>('nameInput');
   private readonly amountValueRef = viewChild<ElementRef<HTMLInputElement>>('amountInput');
 
   protected onAddIngredient(): void {
-    this.ingredientAdded.emit({
+    this.shoppingListService.addIngredient({
       name: this.nameValueRef()?.nativeElement.value,
       amount: Number(this.amountValueRef()?.nativeElement.value),
     });
