@@ -5,7 +5,11 @@ import { RecipesService } from '../../recipes.service';
 @Component({
   selector: 'app-recipe-item',
   templateUrl: './recipe-item.html',
-  styleUrl: './recipe-item.css',
+  styles: `
+    .img-thumb {
+      max-height: 50px;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'd-flex justify-content-between align-items-center',
@@ -18,6 +22,6 @@ export class RecipeItem {
   private readonly recipesService = inject(RecipesService);
 
   protected onRecipeSelected() {
-    this.recipesService.onSelectRecipe(this.recipe());
+    this.recipesService.selectRecipe(this.recipe());
   }
 }

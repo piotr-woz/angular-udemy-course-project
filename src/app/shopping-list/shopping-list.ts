@@ -6,7 +6,6 @@ import { ShoppingListService } from './shopping-list.service';
   selector: 'app-shopping-list',
   imports: [ShoppingEdit],
   templateUrl: './shopping-list.html',
-  styleUrl: './shopping-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShoppingList {

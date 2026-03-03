@@ -28,11 +28,11 @@ export class RecipesService {
     },
   ]);
 
-  public readonly recipes = this.recipes_.asReadonly;
+  public readonly recipes = this.recipes_.asReadonly();
 
   public readonly recipeSelected = signal<Recipe | undefined>(undefined);
 
-  onSelectRecipe(recipe: Recipe): void {
+  selectRecipe(recipe: Recipe): void {
     this.recipeSelected.set(recipe);
   }
 }

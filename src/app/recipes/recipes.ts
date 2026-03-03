@@ -7,7 +7,6 @@ import { RecipesService } from './recipes.service';
   selector: 'app-recipes',
   imports: [RecipeList, RecipeDetail],
   templateUrl: './recipes.html',
-  styleUrl: './recipes.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Recipes {

@@ -6,7 +6,11 @@ import { ShoppingListService } from '../shopping-list.service';
   selector: 'app-shopping-edit',
   imports: [FormsModule],
   templateUrl: './shopping-edit.html',
-  styleUrl: './shopping-edit.css',
+  styles: `
+    .btn {
+      width: 108.4px;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShoppingEdit {

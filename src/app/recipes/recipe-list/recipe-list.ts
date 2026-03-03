@@ -6,11 +6,10 @@ import { RecipesService } from '../recipes.service';
   selector: 'app-recipe-list',
   imports: [RecipeItem],
   templateUrl: './recipe-list.html',
-  styleUrl: './recipe-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecipeList {
   private readonly recipesService = inject(RecipesService);
 
-  protected readonly recipes = this.recipesService.recipes();
+  protected readonly recipes = this.recipesService.recipes;
 }

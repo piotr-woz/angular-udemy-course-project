@@ -7,7 +7,18 @@ import { ShoppingListService } from '../../shopping-list/shopping-list.service';
   selector: 'app-recipe-detail',
   imports: [DropdownDirective],
   templateUrl: './recipe-detail.html',
-  styleUrl: './recipe-detail.css',
+  styles: `
+    .img-thumb {
+      max-height: 300px;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      transform: translate(0px, 39px);
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecipeDetail {
