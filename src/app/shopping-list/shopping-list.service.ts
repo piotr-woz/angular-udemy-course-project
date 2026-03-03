@@ -10,7 +10,7 @@ export class ShoppingListService {
 
   public readonly ingredients = this.ingredients_.asReadonly();
 
-  addIngredient(ingredient: Ingredient): void {
-    this.ingredients_.update((ingredients) => [...ingredients, ingredient]);
+  addIngredients(newIngredients: Ingredient[]): void {
+    this.ingredients_.update((ingredients) => [...ingredients, ...newIngredients]);
   }
 }

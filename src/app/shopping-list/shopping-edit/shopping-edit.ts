@@ -16,9 +16,11 @@ export class ShoppingEdit {
   private readonly amountValueRef = viewChild<ElementRef<HTMLInputElement>>('amountInput');
 
   protected onAddIngredient(): void {
-    this.shoppingListService.addIngredient({
-      name: this.nameValueRef()?.nativeElement.value,
-      amount: Number(this.amountValueRef()?.nativeElement.value),
-    });
+    this.shoppingListService.addIngredients([
+      {
+        name: this.nameValueRef()?.nativeElement.value,
+        amount: Number(this.amountValueRef()?.nativeElement.value),
+      },
+    ]);
   }
 }
