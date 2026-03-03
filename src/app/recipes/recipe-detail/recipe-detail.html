@@ -1,12 +1,12 @@
 <div class="row mt-3">
   <div class="col-12">
-    <img [src]="recipe()?.imagePath" [alt]="recipe()?.name" class="img-fluid img-thumb">
+    <img [src]="recipe().imagePath" [alt]="recipe().name" class="img-fluid img-thumb">
   </div>
 </div>
 
 <div class="row">
   <div class="col-12">
-    <h1>{{recipe()?.name}}</h1>
+    <h1>{{recipe().name}}</h1>
   </div>
 </div>
 
@@ -27,11 +27,17 @@
 
 <div class="row">
   <div class="col-12">
-    {{recipe()?.description}}
+    {{recipe().description}}
   </div>
 </div>
-<div class="row">
+<div class="row mt-3">
   <div class="col-12">
-    Ingredients
+    <ul class="list-group">
+      @for (ingredient of recipe().ingredients; track $index) {
+      <a href="#" class="list-group-item list-group-item-action">
+        {{ingredient.name}} ({{ingredient.amount}})
+      </a>
+      }
+    </ul>
   </div>
 </div>

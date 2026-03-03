@@ -10,5 +10,5 @@ import { DropdownDirective } from '../../shared/dropdown.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecipeDetail {
-  public readonly recipe = input.required<Recipe | undefined>();
+  public readonly recipe = input.required<Recipe>();
 }

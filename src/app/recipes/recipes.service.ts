@@ -11,18 +11,20 @@ export class RecipesService {
       name: 'A Test Recipe 1',
       description: 'This is simply a test!',
       imagePath: 'recipe1.jpg',
+      ingredients: [
+        { name: 'Meat', amount: 1 },
+        { name: 'French Fries', amount: 20 },
+      ],
     },
     {
       id: '2',
       name: 'A Test Recipe 2',
       description: 'This is simply a test!',
       imagePath: 'recipe1.jpg',
-    },
-    {
-      id: '3',
-      name: 'A Test Recipe 3',
-      description: 'This is simply a test!',
-      imagePath: 'recipe1.jpg',
+      ingredients: [
+        { name: 'Meat', amount: 2 },
+        { name: 'French Fries', amount: 15 },
+      ],
     },
   ]);
 
