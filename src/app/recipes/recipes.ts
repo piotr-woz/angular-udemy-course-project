@@ -1,7 +1,7 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RecipeList } from './recipe-list/recipe-list';
 import { RecipeDetail } from './recipe-detail/recipe-detail';
-import { Recipe } from '../shared/recipe.model';
+import { RecipesService } from './recipes.service';
 
 @Component({
   selector: 'app-recipes',
@@ -11,5 +11,7 @@ import { Recipe } from '../shared/recipe.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Recipes {
-  protected readonly selectedRecipe = signal<Recipe | undefined>(undefined);
+  private readonly recipesService = inject(RecipesService);
+
+  protected readonly selectedRecipe = this.recipesService.recipeSelected;
 }

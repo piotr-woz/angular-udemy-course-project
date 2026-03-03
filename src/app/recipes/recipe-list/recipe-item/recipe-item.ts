@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy, input, output } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, inject } from '@angular/core';
 import { Recipe } from '../../../shared/recipe.model';
+import { RecipesService } from '../../recipes.service';
 
 @Component({
   selector: 'app-recipe-item',
@@ -13,9 +14,10 @@ import { Recipe } from '../../../shared/recipe.model';
 })
 export class RecipeItem {
   public readonly recipe = input.required<Recipe>();
-  public readonly recipeSelected = output<void>();
+
+  private readonly recipesService = inject(RecipesService);
 
   protected onRecipeSelected() {
-    this.recipeSelected.emit();
+    this.recipesService.onSelectRecipe(this.recipe());
   }
 }
