@@ -3,14 +3,14 @@ import { Ingredient } from '../shared/ingredient.model';
 
 @Injectable({ providedIn: 'root' })
 export class ShoppingListService {
-  private readonly ingredients_ = signal<Ingredient[]>([
+  private readonly _ingredients = signal<Ingredient[]>([
     { name: 'Apples', amount: 5 },
     { name: 'Tomatoes', amount: 10 },
   ]);
 
-  public readonly ingredients = this.ingredients_.asReadonly();
+  public readonly ingredients = this._ingredients.asReadonly();
 
   addIngredients(newIngredients: Ingredient[]): void {
-    this.ingredients_.update((ingredients) => [...ingredients, ...newIngredients]);
+    this._ingredients.update((ingredients) => [...ingredients, ...newIngredients]);
   }
 }

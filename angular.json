@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "the-course-project": {
+    "course-project": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -62,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "the-course-project:build:production"
+              "buildTarget": "course-project:build:production"
             },
             "development": {
-              "buildTarget": "the-course-project:build:development"
+              "buildTarget": "course-project:build:development"
             }
           },
           "defaultConfiguration": "development"

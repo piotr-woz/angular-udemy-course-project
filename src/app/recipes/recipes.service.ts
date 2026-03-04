@@ -5,7 +5,7 @@ import { Recipe } from '../shared/recipe.model';
   providedIn: 'root',
 })
 export class RecipesService {
-  private readonly recipes_ = signal<Recipe[]>([
+  private readonly _recipes = signal<Recipe[]>([
     {
       id: '1',
       name: 'A Test Recipe 1',
@@ -28,7 +28,7 @@ export class RecipesService {
     },
   ]);
 
-  public readonly recipes = this.recipes_.asReadonly();
+  public readonly recipes = this._recipes.asReadonly();
 
   public readonly recipeSelected = signal<Recipe | undefined>(undefined);
 
